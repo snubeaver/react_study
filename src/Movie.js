@@ -3,10 +3,12 @@ import './Movie.css';
 
 class Movie extends Component {
   render() {
+    console.log(this.props)
+
     return (
       <div>
-        <MoviePoster />
-        <h1>Movie</h1>
+        <MoviePoster poster={this.props.poster} />
+        <h1>{this.props.title}</h1>
       </div>
     )
   }
@@ -15,7 +17,7 @@ class Movie extends Component {
 class MoviePoster extends Component {
   render() {
     return (
-      <img src="https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/2/25/Iron_Man_poster_3.png/revision/latest?cb=20120420114513" />
+      <img src={this.props.poster} />
     )
   }
 }
