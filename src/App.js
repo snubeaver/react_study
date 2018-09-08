@@ -5,21 +5,23 @@ import Movie from './Movie';
   // Update componentWillReceiveProps() -> shouldComponentUpdate() -> componentWillUpdate() -> render() -> componentDidUpdate()
 
 class App extends Component {
+
   state= {}
 
   componentDidMount(){
+    //after render is done 
     this._getMovies();
   }
   _renderMovies = () => {
     const movies = this.state.movies.map(movie => {
-      console.log(movie);
-      return <Movie 
+      // console.log(movie);
+      return (<Movie 
         title={movie.title_english} 
         poster={movie.large_cover_image} 
         key={movie.id} 
         genres={movie.genres}
         synopsis = {movie.synopsis}
-      />
+      />)
     })
     return movies;
   }
@@ -43,13 +45,13 @@ class App extends Component {
   
   render() {
     return (
+      // if state has movies attribute _renderMovies
+      // else show loading 
       <div className="App">
         {this.state.movies? this._renderMovies() : "Loading"}
       </div>
     );
   }
 }
-
-
 
 export default App;
